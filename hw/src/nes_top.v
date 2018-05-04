@@ -27,7 +27,8 @@
 
 module nes_top
 (
-  input  wire       CLK_100MHZ,        // 100MHz system clock signal
+  //input  wire       CLK_100MHZ,        // 100MHz system clock signa
+  input  wire       CLK_24MHZ,        // 100MHz system clock signa
   input  wire       BTN_SOUTH,         // reset push button
   input  wire       BTN_EAST,          // console reset
   input  wire       RXD,               // rs-232 rx signal
@@ -55,6 +56,10 @@ wire        cpumc_r_nw;
 wire [ 7:0] ppumc_din;
 wire [13:0] ppumc_a;
 wire        ppumc_wr;
+
+
+// generated clock signal
+wire        CLK_100MHZ;
 
 //
 // RP2A03: Main processing chip including CPU, APU, joypad control, and sprite DMA control.
@@ -92,6 +97,11 @@ rp2a03 rp2a03_blk(
   .dbgreg_d_in(rp2a03_dbgreg_din),
   .dbgreg_wr_in(rp2a03_dbgreg_wr),
   .dbgreg_d_out(rp2a03_dbgreg_dout)
+);
+
+clock_24_to_100mhz clock_24_to_100mhz_blk(
+  .CLK_IN1(CLK_24MHZ),
+  .CLK_OUT1(CLK_100MHZ)
 );
 
 //
