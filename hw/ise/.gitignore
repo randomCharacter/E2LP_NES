@@ -1,4 +1,10 @@
-*.*
 !nes.xise
 !.gitignore
 !filter.filter
+*.bit
+*.ngc
+*.ncd
+*.ngd
+*.ngr
+*.ngm
+*.html
