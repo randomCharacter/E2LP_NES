@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2018-05-08T11:23:43</DateModified>
+  <DateModified>2018-05-08T11:43:04</DateModified>
   <ModuleName>nes_top</ModuleName>
-  <SummaryTimeStamp>2018-05-08T11:10:41</SummaryTimeStamp>
+  <SummaryTimeStamp>2018-05-08T11:35:24</SummaryTimeStamp>
   <SavedFilePath>D:/ra97-2015/fpga_nes/hw/ise/iseconfig/nes_top.xreport</SavedFilePath>
   <ImplementationReportsDirectory>D:/ra97-2015/fpga_nes/hw/ise\</ImplementationReportsDirectory>
   <DateInitialized>2018-05-04T10:57:53</DateInitialized>

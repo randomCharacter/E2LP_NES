@@ -28,8 +28,8 @@
 
 module uart_baud_clk
 #(
-  parameter SYS_CLK_FREQ             = 50000000,
-  parameter BAUD                     = 19200,
+  parameter SYS_CLK_FREQ             = 100000000,
+  parameter BAUD                     = 38400,
   parameter BAUD_CLK_OVERSAMPLE_RATE = 16
 )
 (

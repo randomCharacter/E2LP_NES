@@ -34,11 +34,11 @@
 
 module uart
 #(
-  parameter SYS_CLK_FREQ = 50000000,
-  parameter BAUD_RATE    = 19200,
+  parameter SYS_CLK_FREQ = 100000000,
+  parameter BAUD_RATE    = 38400,
   parameter DATA_BITS    = 8,
   parameter STOP_BITS    = 1,
-  parameter PARITY_MODE  = 0  // 0 = none, 1 = odd, 2 = even
+  parameter PARITY_MODE  = 1  // 0 = none, 1 = odd, 2 = even
 )
 (
   input  wire                 clk,        // System clk
