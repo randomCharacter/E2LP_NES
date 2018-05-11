@@ -48,12 +48,11 @@
 # 
 
 # create the project
-vlogcomp -work work ${XILINX}/verilog/src/glbl.v
-vlogcomp -work work ../../implement/results/routed.v
-vlogcomp -work work clock_24_to_100mhz_tb.v
+vhpcomp -work work ../../implement/results/routed.vhd
+vhpcomp -work work clock_24_to_100mhz_tb.vhd
 
 # compile the project
-fuse work.clock_24_to_100mhz_tb work.glbl -L secureip -L simprims_ver -o clock_24_to_100mhz_isim.exe
+fuse work.clock_24_to_100mhz_tb  -L secureip -L simprim -o clock_24_to_100mhz_isim.exe
 
 # run the simulation script
 ./clock_24_to_100mhz_isim.exe -tclbatch simcmds.tcl -sdfmax /clock_24_to_100mhz_tb/dut=../../implement/results/routed.sdf

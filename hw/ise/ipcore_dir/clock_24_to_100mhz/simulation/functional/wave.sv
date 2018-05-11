@@ -99,6 +99,14 @@ group clear 0 end
 group insert \
     {clock_24_to_100mhz_tb.dut.counter} \
 
+group using {Status/control}
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+   {nc::clock_24_to_100mhz_tb.RESET}    {nc::clock_24_to_100mhz_tb.LOCKED}
+
 
 set id [waveform add -signals [list {nc::clock_24_to_100mhz_tb.COUNT} ]]
 

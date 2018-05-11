@@ -1,11 +1,9 @@
 # Output products list for <clock_24_to_100mhz>
-_xmsgs\pn_parser.xmsgs
 clock_24_to_100mhz.asy
 clock_24_to_100mhz.gise
-clock_24_to_100mhz.sym
 clock_24_to_100mhz.ucf
-clock_24_to_100mhz.v
-clock_24_to_100mhz.veo
+clock_24_to_100mhz.vhd
+clock_24_to_100mhz.vho
 clock_24_to_100mhz.xco
 clock_24_to_100mhz.xdc
 clock_24_to_100mhz.xise
@@ -14,7 +12,7 @@ clock_24_to_100mhz\doc\clk_wiz_v3_6_readme.txt
 clock_24_to_100mhz\doc\clk_wiz_v3_6_vinfo.html
 clock_24_to_100mhz\doc\pg065_clk_wiz.pdf
 clock_24_to_100mhz\example_design\clock_24_to_100mhz_exdes.ucf
-clock_24_to_100mhz\example_design\clock_24_to_100mhz_exdes.v
+clock_24_to_100mhz\example_design\clock_24_to_100mhz_exdes.vhd
 clock_24_to_100mhz\example_design\clock_24_to_100mhz_exdes.xdc
 clock_24_to_100mhz\implement\implement.bat
 clock_24_to_100mhz\implement\implement.sh
@@ -26,7 +24,7 @@ clock_24_to_100mhz\implement\planAhead_rdn.sh
 clock_24_to_100mhz\implement\planAhead_rdn.tcl
 clock_24_to_100mhz\implement\xst.prj
 clock_24_to_100mhz\implement\xst.scr
-clock_24_to_100mhz\simulation\clock_24_to_100mhz_tb.v
+clock_24_to_100mhz\simulation\clock_24_to_100mhz_tb.vhd
 clock_24_to_100mhz\simulation\functional\simcmds.tcl
 clock_24_to_100mhz\simulation\functional\simulate_isim.bat
 clock_24_to_100mhz\simulation\functional\simulate_isim.sh
@@ -35,11 +33,9 @@ clock_24_to_100mhz\simulation\functional\simulate_mti.do
 clock_24_to_100mhz\simulation\functional\simulate_mti.sh
 clock_24_to_100mhz\simulation\functional\simulate_ncsim.sh
 clock_24_to_100mhz\simulation\functional\simulate_vcs.sh
-clock_24_to_100mhz\simulation\functional\ucli_commands.key
-clock_24_to_100mhz\simulation\functional\vcs_session.tcl
 clock_24_to_100mhz\simulation\functional\wave.do
 clock_24_to_100mhz\simulation\functional\wave.sv
-clock_24_to_100mhz\simulation\timing\clock_24_to_100mhz_tb.v
+clock_24_to_100mhz\simulation\timing\clock_24_to_100mhz_tb.vhd
 clock_24_to_100mhz\simulation\timing\sdf_cmd_file
 clock_24_to_100mhz\simulation\timing\simcmds.tcl
 clock_24_to_100mhz\simulation\timing\simulate_isim.sh

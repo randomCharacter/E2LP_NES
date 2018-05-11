@@ -89,6 +89,9 @@ architecture test of clock_24_to_100mhz_tb is
   signal CLK_IN1       : std_logic := '1';
   -- The high bit of the sampling counter
   signal COUNT         : std_logic;
+  -- Status and control signals
+  signal RESET         : std_logic := '0';
+  signal LOCKED        : std_logic;
   signal COUNTER_RESET : std_logic := '0';
   signal timeout_counter : std_logic_vector (13 downto 0) := (others => '0');
 --  signal defined to stop mti simulation without severity failure in the report
@@ -104,7 +107,10 @@ port
   COUNTER_RESET     : in  std_logic;
   CLK_OUT           : out std_logic_vector(1 downto 1) ;
   -- High bits of counters driven by clocks
-  COUNT             : out std_logic
+  COUNT             : out std_logic;
+  -- Status and control signals
+  RESET             : in  std_logic;
+  LOCKED            : out std_logic
  );
 end component;
 
@@ -151,8 +157,10 @@ begin
 
   begin
    report "Timing checks are not valid" severity note;
-    -- can't probe into hierarchy, wait "some time" for lock
-    wait for (PER1*2500);
+    RESET      <= '1';
+    wait for (PER1*6);
+    RESET      <= '0';
+    wait until LOCKED = '1';
     wait for (PER1*20);
     COUNTER_RESET <= '1';
     wait for (PER1*19.5);
@@ -169,6 +177,27 @@ begin
     wait;
   end process;
 
+ process (CLK_IN1)
+    procedure simtimeprint is
+      variable outline : line;
+    begin
+      write(outline, string'("## SYSTEM_CYCLE_COUNTER "));
+      write(outline, NOW/PER1);
+      write(outline, string'(" ns"));
+      writeline(output,outline);
+    end simtimeprint;
+   begin
+     if (CLK_IN1'event and CLK_IN1='1') then
+         timeout_counter <= timeout_counter + '1';
+       if (timeout_counter = "10000000000000") then
+          if (LOCKED /= '1') then
+            simtimeprint;
+            report "NO LOCK signal" severity failure;
+          end if;
+       end if;
+     end if;
+ end process; 
+
 
   -- Instantiation of the example design containing the clock
   --    network and sampling counters
@@ -181,7 +210,10 @@ begin
     COUNTER_RESET      => COUNTER_RESET,
     CLK_OUT            => CLK_OUT,
     -- High bits of the counters
-    COUNT              => COUNT);
+    COUNT              => COUNT,
+    -- Status and control signals
+    RESET              => RESET,
+    LOCKED             => LOCKED);
 
 -- Freq Check 
 

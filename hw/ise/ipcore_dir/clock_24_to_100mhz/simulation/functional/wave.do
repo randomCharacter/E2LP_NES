@@ -47,11 +47,13 @@
 # PART OF THIS FILE AT ALL TIMES.
 # 
 
-add wave -noupdate -format Literal -radix ascii /clock_24_to_100mhz_tb/test_phase
 add wave -noupdate -divider {Input clocks}
 add wave -noupdate -format Logic /clock_24_to_100mhz_tb/CLK_IN1
 add wave -noupdate -divider {Output clocks}
 add wave -noupdate -format Logic /clock_24_to_100mhz_tb/dut/clk
+add wave -noupdate -divider Status/control
+add wave -noupdate -format Logic /clock_24_to_100mhz_tb/RESET
+add wave -noupdate -format Logic /clock_24_to_100mhz_tb/LOCKED
 add wave -noupdate -divider Counters
 add wave -noupdate -format Literal -radix hexadecimal /clock_24_to_100mhz_tb/COUNT
 add wave -noupdate -format Literal -radix hexadecimal /clock_24_to_100mhz_tb/dut/counter

@@ -1,2 +1,2 @@
-verilog work ../../clock_24_to_100mhz.v
-verilog work ../example_design/clock_24_to_100mhz_exdes.v
+vhdl work ../../clock_24_to_100mhz.vhd
+vhdl work ../example_design/clock_24_to_100mhz_exdes.vhd

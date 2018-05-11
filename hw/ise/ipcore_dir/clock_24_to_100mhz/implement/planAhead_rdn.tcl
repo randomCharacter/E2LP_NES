@@ -55,15 +55,15 @@ create_project $projName $projDir/results/$projName -part $device -force
 set_property design_mode RTL [current_fileset -srcset]
 set top_module clock_24_to_100mhz_exdes
 set_property top clock_24_to_100mhz_exdes [get_property srcset [current_run]]
-add_files -norecurse {../../../clock_24_to_100mhz.v}
-add_files -norecurse {../../example_design/clock_24_to_100mhz_exdes.v}
+add_files -norecurse {../../../clock_24_to_100mhz.vhd}
+add_files -norecurse {../../example_design/clock_24_to_100mhz_exdes.vhd}
 import_files -fileset [get_filesets constrs_1 ] -force -norecurse {../../example_design/clock_24_to_100mhz_exdes.xdc}
 synth_design
 opt_design 
 place_design 
 route_design 
 write_sdf -rename_top_module clock_24_to_100mhz_exdes -file routed.sdf 
-write_verilog -nolib -mode timesim -sdf_anno false -rename_top_module clock_24_to_100mhz_exdes -file routed.v
+write_vhdl -file routed.vhd
 report_timing -nworst 30 -path_type full -file routed.twr
 report_drc -file report.drc
 write_bitstream -bitgen_options {-g UnconstrainedPins:Allow} -file routed.bit

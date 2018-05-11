@@ -38,12 +38,16 @@ module nes_top
   output wire       TXD,               // rs-232 tx signal
   output wire       VGA_HSYNC,         // vga hsync signal
   output wire       VGA_VSYNC,         // vga vsync signal
-  output wire [2:0] VGA_RED,           // vga red signal
-  output wire [2:0] VGA_GREEN,         // vga green signal
-  output wire [1:0] VGA_BLUE,          // vga blue signal
+  output wire [7:0] VGA_RED,           // vga red signal
+  output wire [7:0] VGA_GREEN,         // vga green signal
+  output wire [7:0] VGA_BLUE,          // vga blue signal
   output wire       NES_JOYPAD_CLK,    // joypad output clk signal
   output wire       NES_JOYPAD_LATCH,  // joypad output latch signal
-  output wire       AUDIO              // pwm output audio channel
+  output wire       AUDIO,             // pwm output audio channel
+  output wire       VGA_CLK,
+  output wire       VGA_BLANK,
+  output wire       VGA_SYNC,
+  output wire       VGA_POW_SAVE
 );
 
 //
@@ -60,6 +64,10 @@ wire        ppumc_wr;
 
 // generated clock signal
 wire        CLK_100MHZ;
+
+wire s_vsync, s_hsync;
+wire s_blank;
+wire s_clk;
 
 //
 // RP2A03: Main processing chip including CPU, APU, joypad control, and sprite DMA control.
@@ -180,6 +188,10 @@ wire        ppu_vram_wr;    // ppu video ram read/write select
 wire [ 7:0] ppu_vram_din;   // ppu video ram data bus (input)
 wire [ 7:0] ppu_vram_dout;  // ppu video ram data bus (output)
 
+wire [ 2:0] s_red;
+wire [ 2:0] s_green;
+wire [ 1:0] s_blue;
+
 wire        ppu_nvbl;       // ppu /VBL signal.
 
 // PPU snoops the CPU address bus for register reads/writes.  Addresses 0x2000-0x2007
@@ -197,16 +209,18 @@ ppu ppu_blk(
   .ri_r_nw_in(ppu_ri_r_nw),
   .ri_d_in(ppu_ri_din),
   .vram_d_in(ppu_vram_din),
-  .hsync_out(VGA_HSYNC),
-  .vsync_out(VGA_VSYNC),
-  .r_out(VGA_RED),
-  .g_out(VGA_GREEN),
-  .b_out(VGA_BLUE),
+  .hsync_out(s_hsync),
+  .vsync_out(s_vsync),
+  .r_out(s_red),
+  .g_out(s_green),
+  .b_out(s_blue),
   .ri_d_out(ppu_ri_dout),
   .nvbl_out(ppu_nvbl),
   .vram_a_out(ppu_vram_a),
   .vram_d_out(ppu_vram_dout),
-  .vram_wr_out(ppu_vram_wr)
+  .vram_wr_out(ppu_vram_wr),
+  .vga_vblank(s_blank),
+  .o_clk(s_clk)
 );
 
 assign vram_a = { cart_ciram_a10, ppumc_a[9:0] };
@@ -266,6 +280,17 @@ assign hci_ppu_vram_din = cart_chr_dout | vram_dout;
 
 // Issue NMI interupt on PPU vertical blank.
 assign rp2a03_nnmi = ppu_nvbl;
+
+assign VGA_RED = 8'b00000000;
+assign VGA_GREEN = 8'b11111111;
+assign VGA_BLUE = 8'b00000000;
+
+assign VGA_HSYNC = s_hsync;
+assign VGA_VSYNC = s_vsync;
+assign VGA_BLANK = s_blank;//~(s_hsync & s_vsync);
+assign VGA_SYNC = s_hsync & s_vsync;
+assign VGA_POW_SAVE = 1'b1;
+assign VGA_CLK = s_clk;
 
 endmodule
 

@@ -69,7 +69,10 @@ port
  (-- Clock in ports
   CLK_IN1           : in     std_logic;
   -- Clock out ports
-  CLK_OUT1          : out    std_logic
+  CLK_OUT1          : out    std_logic;
+  -- Status and control signals
+  RESET             : in     std_logic;
+  LOCKED            : out    std_logic
  );
 end component;
 
@@ -82,5 +85,8 @@ your_instance_name : clock_24_to_100mhz
    (-- Clock in ports
     CLK_IN1 => CLK_IN1,
     -- Clock out ports
-    CLK_OUT1 => CLK_OUT1);
+    CLK_OUT1 => CLK_OUT1,
+    -- Status and control signals
+    RESET  => RESET,
+    LOCKED => LOCKED);
 -- INST_TAG_END ------ End INSTANTIATION Template ------------

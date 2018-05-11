@@ -52,11 +52,10 @@
 mkdir work
 
 # compile all of the files
-ncvlog -work work ${XILINX}/verilog/src/glbl.v
-ncvlog -work work ../../../clock_24_to_100mhz.v
-ncvlog -work work ../../example_design/clock_24_to_100mhz_exdes.v
-ncvlog -work work ../clock_24_to_100mhz_tb.v
+ncvhdl -v93 -work work ../../../clock_24_to_100mhz.vhd
+ncvhdl -v93 -work work ../../example_design/clock_24_to_100mhz_exdes.vhd
+ncvhdl -v93 -work work ../clock_24_to_100mhz_tb.vhd
 
 # elaborate and run the simulation
-ncelab -work work -access +wc work.clock_24_to_100mhz_tb work.glbl
+ncelab -work work -access +wc work.clock_24_to_100mhz_tb 
 ncsim -input  "@database -open -shm nc; probe -create -database nc -all -depth all; probe dut.counter; run 50000ns; exit" work.clock_24_to_100mhz_tb

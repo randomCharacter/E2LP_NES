@@ -52,14 +52,14 @@ set work work
 vlib work
 
 # compile all of the files
-vlog -work work $env(XILINX)/verilog/src/glbl.v
-vlog -work work ../../../clock_24_to_100mhz.v
-vlog -work work ../../example_design/clock_24_to_100mhz_exdes.v
-vlog -work work ../clock_24_to_100mhz_tb.v
+vcom -work work ../../../clock_24_to_100mhz.vhd
+vcom -work work ../../example_design/clock_24_to_100mhz_exdes.vhd
+vcom -work work ../clock_24_to_100mhz_tb.vhd
 
 # run the simulation
-vsim  -t ps -voptargs="+acc" -L unisims_ver work.clock_24_to_100mhz_tb work.glbl
+vsim  -t ps -voptargs="+acc" -L unisim work.clock_24_to_100mhz_tb 
 do wave.do
+when {end_of_sim} {echo "End of Simulation"; stop} 
 log clock_24_to_100mhz_tb/dut/counter
 log -r /*
 run 50000ns

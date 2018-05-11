@@ -1,0 +1,9 @@
+run
+-ifmt MIXED
+-top clock_24_to_100mhz_exdes
+-p xc6slx45-fgg676-2
+-ifn xst.prj
+-ofn clock_24_to_100mhz_exdes
+-keep_hierarchy soft 
+-equivalent_register_removal no 
+-max_fanout 65535

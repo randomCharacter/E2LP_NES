@@ -47,13 +47,12 @@ REM  THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS
 REM  PART OF THIS FILE AT ALL TIMES.
 REM  
 
-vlogcomp -work work %XILINX%\verilog\src\glbl.v
-vlogcomp -work work ..\..\..\clock_24_to_100mhz.v
-vlogcomp -work work ..\..\example_design\clock_24_to_100mhz_exdes.v
-vlogcomp -work work ..\clock_24_to_100mhz_tb.v
+vhpcomp -work work ..\..\..\clock_24_to_100mhz.vhd
+vhpcomp -work work ..\..\example_design\clock_24_to_100mhz_exdes.vhd
+vhpcomp -work work ..\clock_24_to_100mhz_tb.vhd
 
 REM compile the project
-fuse work.clock_24_to_100mhz_tb work.glbl -L unisims_ver -o clock_24_to_100mhz_isim.exe
+fuse work.clock_24_to_100mhz_tb  -L unisim -o clock_24_to_100mhz_isim.exe
 
 REM run the simulation script
 .\clock_24_to_100mhz_isim.exe -gui -tclbatch simcmds.tcl

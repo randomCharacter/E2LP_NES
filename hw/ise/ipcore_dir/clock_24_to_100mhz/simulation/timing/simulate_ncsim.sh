@@ -52,13 +52,12 @@
 mkdir work
 
 # compile all of the files
-ncvlog -work work ${XILINX}/verilog/src/glbl.v
-ncvlog -work work ../../implement/results/routed.v
-ncvlog -work work clock_24_to_100mhz_tb.v
+ncvhdl -v93 -work work ../../implement/results/routed.vhd
+ncvhdl -v93 -work work clock_24_to_100mhz_tb.vhd
 
 # elaborate and run the simulation
 ncsdfc ../../implement/results/routed.sdf
 
-ncelab -work work -access +wc -pulse_r 10 -nonotifier work.clock_24_to_100mhz_tb work.glbl -sdf_cmd_file sdf_cmd_file
+ncelab -work work -access +wc -pulse_r 10 -nonotifier work.clock_24_to_100mhz_tb -sdf_cmd_file sdf_cmd_file
 ncsim -input  "@database -open -shm nc; probe -create -database nc -all -depth all; run 50000ns; exit" work.clock_24_to_100mhz_tb
 
