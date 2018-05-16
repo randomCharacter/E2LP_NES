@@ -102,10 +102,10 @@ BOOL SerialComm::Init()
 
     if (ret)
     {
-        serialConfig.BaudRate = CBR_9600;
+        serialConfig.BaudRate = CBR_19200;
         serialConfig.ByteSize = 8;
         serialConfig.StopBits = ONESTOPBIT;
-        serialConfig.Parity   = 0;
+        serialConfig.Parity   = 1;
 
         if (!SetCommState(m_hSerialComm, &serialConfig))
         {
@@ -153,14 +153,12 @@ BOOL SerialComm::Init()
 
         if (strcmp(pInitString, pOutString))
         {
-			//ret = FALSE;
+			ret = FALSE;
 			wchar_t* wString=new wchar_t[20];
 			MultiByteToWideChar(CP_ACP, 0, pOutString, -1, wString, 4096);
 			MessageBox(NULL, wString, L"Test print handler", MB_OK);
 			MultiByteToWideChar(CP_ACP, 0, pInitString, -1, wString, 4096);
 			MessageBox(NULL, wString, L"Test print handler", MB_OK);
-			std::cout << pOutString << std::endl;
-			std::cout << pInitString << std::endl;
             MessageBox(NULL, L"NES FPGA not connected.", _T("NesDbg"), MB_OK);
         }
 

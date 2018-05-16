@@ -39,7 +39,9 @@ module vga_sync
   output wire [9:0] y,      // Current Y position being displayed (top = 0)
   output wire [9:0] x_next, // Next X position to be displayed next clock
   output wire [9:0] y_next,  // Next Y position to be displayed
-  output wire       o_clk
+  output wire       o_clk,
+  output wire       o_blank,
+  output wire       o_sync
 );
 
 //
@@ -106,7 +108,8 @@ assign y      = q_vcnt;
 assign x_next = d_hcnt;
 assign y_next = (y == (V_DISP + V_FP + V_RT + V_BP - 10'h001)) ? 10'h000 : (q_vcnt + 10'h001);
 assign en     = q_en;
-assign o_clk  = q_mod4_cnt[0];
+assign o_clk  = q_mod4_cnt[1];
+assign o_blank = ~d_en;
+assign o_sync = q_hsync || q_vsync;
 
 endmodule
-

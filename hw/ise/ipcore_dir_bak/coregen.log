@@ -1,52 +1,5 @@
 INFO:sim:172 - Generating IP...
 Applying current project options...
 Finished applying current project options.
-WARNING:sim - A core named 'clock_24_to_100mhz' already exists in the project.
-   Output products for this core may be overwritten.
-Resolving generics for 'clock_24_to_100mhz'...
-WARNING:sim - A core named 'clock_24_to_100mhz' already exists in the project.
-   Output products for this core may be overwritten.
-Applying external generics to 'clock_24_to_100mhz'...
-Delivering associated files for 'clock_24_to_100mhz'...
-WARNING:sim - Component clk_wiz_v3_6 does not have a valid model name for
-   Verilog synthesis
-Delivering EJava files for 'clock_24_to_100mhz'...
-Delivered 3 files into directory
-D:/ra97-2015/fpga_nes/hw/ise/ipcore_dir_bak/tmp/_cg/clock_24_to_100mhz
-Delivered 1 file into directory
-D:/ra97-2015/fpga_nes/hw/ise/ipcore_dir_bak/tmp/_cg/clock_24_to_100mhz
-Generating ASY schematic symbol...
-Loading device for application Rf_Device from file '6slx45.nph' in environment
-C:\Xilinx\14.6\ISE_DS\ISE\.
-INFO:sim:949 - Finished generation of ASY schematic symbol.
-Generating SYM schematic symbol for 'clock_24_to_100mhz'...
-Generating ISE project...
-XCO file found: clock_24_to_100mhz.xco
-XMDF file found: clock_24_to_100mhz_xmdf.tcl
-Adding
-D:/ra97-2015/fpga_nes/hw/ise/ipcore_dir_bak/tmp/_cg/clock_24_to_100mhz.asy -view
-all -origin_type imported
-Adding
-D:/ra97-2015/fpga_nes/hw/ise/ipcore_dir_bak/tmp/_cg/clock_24_to_100mhz.ucf -view
-all -origin_type created
-Adding D:/ra97-2015/fpga_nes/hw/ise/ipcore_dir_bak/tmp/_cg/clock_24_to_100mhz.v
--view all -origin_type created
-INFO:HDLCompiler:1845 - Analyzing Verilog file
-   "D:/ra97-2015/fpga_nes/hw/ise/ipcore_dir_bak/tmp/_cg/clock_24_to_100mhz.v"
-   into library work
-INFO:ProjectMgmt - Parsing design hierarchy completed successfully.
-Adding
-D:/ra97-2015/fpga_nes/hw/ise/ipcore_dir_bak/tmp/_cg/clock_24_to_100mhz.veo -view
-all -origin_type imported
-INFO:TclTasksC:2116 - The automatic calculation of top has been turned-off.
-   Please set the new top explicitly by running the "project set top" command.
-   To re-calculate the new top automatically, set the "Auto Implementation Top"
-   property to true.
-Top level has been set to "/clock_24_to_100mhz"
-Generating README file...
-Generating FLIST file...
-INFO:sim:948 - Finished FLIST file generation.
-Launching README viewer...
-Moving files to output directory...
-Finished moving files to output directory
+Cancelled executing Tcl generator.
 Wrote CGP file for project 'clock_24_to_100mhz'.

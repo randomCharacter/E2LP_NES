@@ -40,7 +40,9 @@ module ppu_vga
   output wire [9:0] nes_y_next_out,      // next line's nes y coordinate
   output wire       pix_pulse_out,       // 1 clk pulse prior to nes_x update
   output wire       vblank_out,          // indicates a vblank is occuring (no PPU vram access)
-  output wire       o_clk
+  output wire       o_clk,
+  output wire       o_blank,
+  output wire       o_sync
 );
 
 // Display dimensions (640x480).
@@ -72,7 +74,9 @@ vga_sync vga_sync_blk(
   .y(sync_y),
   .x_next(sync_x_next),
   .y_next(sync_y_next),
-  .o_clk(o_clk)
+  .o_clk(o_clk),
+  .o_sync(o_sync),
+  .o_blank(o_blank)
 );
 
 //
