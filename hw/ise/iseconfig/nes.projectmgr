@@ -10,7 +10,12 @@
          <ClosedNode>/Automatic `includes</ClosedNode>
          <ClosedNode>/apu D:|fpga_nes|hw|src|cpu|apu|apu.v</ClosedNode>
          <ClosedNode>/nes_top C:|Users|student|Desktop|new|fpga_nes|hw|src|nes_top.v/cart_blk - cart</ClosedNode>
+         <ClosedNode>/nes_top C:|Users|student|Desktop|new|fpga_nes|hw|src|nes_top.v/hci_blk - hci</ClosedNode>
+         <ClosedNode>/nes_top C:|Users|student|Desktop|new|fpga_nes|hw|src|nes_top.v/ppu_blk - ppu/ppu_vga_blk - ppu_vga</ClosedNode>
          <ClosedNode>/nes_top C:|Users|student|Desktop|new|fpga_nes|hw|src|nes_top.v/rp2a03_blk - rp2a03</ClosedNode>
+         <ClosedNode>/nes_top C:|Users|student|Desktop|new|fpga_nes|hw|src|nes_top.v/rp2a03_blk - rp2a03/apu_blk - apu</ClosedNode>
+         <ClosedNode>/nes_top C:|Users|student|Desktop|new|fpga_nes|hw|src|nes_top.v/vram_blk - vram</ClosedNode>
+         <ClosedNode>/nes_top C:|Users|student|Desktop|new|fpga_nes|hw|src|nes_top.v/wram_blk - wram</ClosedNode>
          <ClosedNode>/nes_top D:|fpga_nes|hw|src|nes_top.v/cart_blk - cart</ClosedNode>
          <ClosedNode>/nes_top D:|fpga_nes|hw|src|nes_top.v/hci_blk - hci/uart_blk - uart</ClosedNode>
          <ClosedNode>/nes_top D:|fpga_nes|hw|src|nes_top.v/ppu_blk - ppu</ClosedNode>
@@ -94,7 +99,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000192000000010000000100000000000000000000000064ffffffff000000810000000000000001000001920000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000013f000000010000000100000000000000000000000064ffffffff0000008100000000000000010000013f0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem/>
    </ItemView>
@@ -115,14 +120,13 @@
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_XCO" guiview="Process" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
-         <ClosedNode>CORE Generator</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
          <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000192000000010000000100000000000000000000000064ffffffff000000810000000000000001000001920000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000013f000000010000000100000000000000000000000064ffffffff0000008100000000000000010000013f0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem/>
    </ItemView>
@@ -134,12 +138,12 @@
          <ClosedNode>Design Utilities</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000013f000000010000000100000000000000000000000064ffffffff0000008100000000000000010000013f0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
 </Project>

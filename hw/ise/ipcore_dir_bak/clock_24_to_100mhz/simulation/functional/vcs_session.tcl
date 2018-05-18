@@ -8,6 +8,9 @@ gui_sg_addsignal -group clock_24_to_100mhz_group {clock_24_to_100mhz_tb.CLK_IN1}
 gui_sg_addsignal -group clock_24_to_100mhz_group {{Output_clocks}} -divider
 gui_sg_addsignal -group clock_24_to_100mhz_group {clock_24_to_100mhz_tb.dut.clk}
 gui_list_expand -id Wave.1 clock_24_to_100mhz_tb.dut.clk
+gui_sg_addsignal -group clock_24_to_100mhz_group {{Status_control}} -divider
+gui_sg_addsignal -group clock_24_to_100mhz_group {clock_24_to_100mhz_tb.RESET}
+gui_sg_addsignal -group clock_24_to_100mhz_group {clock_24_to_100mhz_tb.LOCKED}
 gui_sg_addsignal -group clock_24_to_100mhz_group {{Counters}} -divider
 gui_sg_addsignal -group clock_24_to_100mhz_group {clock_24_to_100mhz_tb.COUNT}
 gui_sg_addsignal -group clock_24_to_100mhz_group {clock_24_to_100mhz_tb.dut.counter}

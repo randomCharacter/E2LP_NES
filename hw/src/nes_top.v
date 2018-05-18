@@ -47,7 +47,9 @@ module nes_top
   output wire       VGA_PIX_CLK,
   output wire       VGA_BLANK,
   output wire       VGA_SYNC,
-  output wire       VGA_POW_SAVE
+  output wire       VGA_POW_SAVE,
+  output wire       LED0,
+  output wire       LED1
 );
 
 //
@@ -64,11 +66,18 @@ wire        ppumc_wr;
 
 // generated clock signal
 wire        CLK_100MHZ;
+wire			s_locked;
+wire			s_rst;
 
 clock_24_to_100mhz clock_24_to_100mhz_blk(
   .CLK_IN1(CLK_24MHZ),
-  .CLK_OUT1(CLK_100MHZ)
+  .CLK_OUT1(CLK_100MHZ),
+  .RESET(~RST_BUTTON),
+  .LOCKED(s_locked)
 );
+assign s_rst = ~s_locked;
+
+
 
 //
 // RP2A03: Main processing chip including CPU, APU, joypad control, and sprite DMA control.
@@ -87,11 +96,11 @@ wire [ 7:0] rp2a03_dbgreg_dout;
 
 rp2a03 rp2a03_blk(
   .clk_in(CLK_100MHZ),
-  .rst_in(RST_BUTTON),
+  .rst_in(s_rst),
   .rdy_in(rp2a03_rdy),
   .d_in(rp2a03_din),
   .nnmi_in(rp2a03_nnmi),
-  .nres_in(~BTN_EAST),
+  .nres_in(BTN_EAST),
   .d_out(rp2a03_dout),
   .a_out(rp2a03_a),
   .r_nw_out(rp2a03_r_nw),
@@ -205,7 +214,7 @@ assign ppu_ri_din  = cpumc_din;
 
 ppu ppu_blk(
   .clk_in(CLK_100MHZ),
-  .rst_in(RST_BUTTON),
+  .rst_in(s_rst),
   .ri_sel_in(ppu_ri_sel),
   .ri_ncs_in(ppu_ri_ncs),
   .ri_r_nw_in(ppu_ri_r_nw),
@@ -241,16 +250,17 @@ wire [ 7:0] hci_ppu_vram_din;
 wire [ 7:0] hci_ppu_vram_dout;
 wire [15:0] hci_ppu_vram_a;
 wire        hci_ppu_vram_wr;
+wire        s_tx;
 
 hci hci_blk(
   .clk(CLK_100MHZ),
-  .rst(BTN_SOUTH),
+  .rst(s_rst),
   .rx(RXD),
   .brk(rp2a03_brk),
   .cpu_din(hci_cpu_din),
   .cpu_dbgreg_in(rp2a03_dbgreg_dout),
   .ppu_vram_din(hci_ppu_vram_din),
-  .tx(TXD),
+  .tx(s_tx),
   .active(hci_active),
   .cpu_r_nw(hci_cpu_r_nw),
   .cpu_a(hci_cpu_a),
@@ -300,7 +310,7 @@ wire sn_pow_save = 1'b1;
 /*
 vga_ctrl vga_ctrl_blk(
    .i_clk_100MHz(CLK_100MHZ),
-   .in_rst(RST_BUTTON),
+   .in_rst(~s_rst),
    .o_phase(s_phase),
    .o_pixel_x(s_pixel_x),
    .o_pixel_y(s_pixel_y),
@@ -317,7 +327,7 @@ vga_ctrl vga_ctrl_blk(
 );
 */
 assign VGA_RED = {s_red_ppu, 5'b00000};
-assign VGA_GREEN = {s_green_ppu, 5'b11111};
+assign VGA_GREEN = {s_green_ppu, 5'b00000};
 assign VGA_BLUE = {s_blue_ppu, 6'b000000};
 
 assign VGA_HSYNC = ~s_hsync;
@@ -326,5 +336,9 @@ assign VGA_BLANK = ~s_blank_ppu;
 assign VGA_SYNC = ~(s_hsync || s_vsync);
 assign VGA_POW_SAVE = sn_pow_save;
 assign VGA_PIX_CLK = vga_clk_ppu;
+
+assign LED1 = ~RXD;
+assign TXD = s_tx;
+assign LED0 = ~s_tx;
 
 endmodule

@@ -102,10 +102,10 @@ BOOL SerialComm::Init()
 
     if (ret)
     {
-        serialConfig.BaudRate = CBR_19200;
+        serialConfig.BaudRate = CBR_9600;
         serialConfig.ByteSize = 8;
         serialConfig.StopBits = ONESTOPBIT;
-        serialConfig.Parity   = 1;
+        serialConfig.Parity   = ODDPARITY;
 
         if (!SetCommState(m_hSerialComm, &serialConfig))
         {
@@ -148,17 +148,21 @@ BOOL SerialComm::Init()
         UINT bytesToReceive = initEchoPkt.ReturnBytesExpected();
 
         char* pOutString = new char[bytesToReceive];
-
         ReceiveData(reinterpret_cast<BYTE*>(pOutString), bytesToReceive);
-
+		/*int i = 0;
+		for(i = 0; i < bytesToReceive; i++) {
+			pOutString[i] = pOutString[i + 3];
+		}*/
+		//pOutString[i] = 0;
         if (strcmp(pInitString, pOutString))
         {
 			ret = FALSE;
-			wchar_t* wString=new wchar_t[20];
-			MultiByteToWideChar(CP_ACP, 0, pOutString, -1, wString, 4096);
-			MessageBox(NULL, wString, L"Test print handler", MB_OK);
-			MultiByteToWideChar(CP_ACP, 0, pInitString, -1, wString, 4096);
-			MessageBox(NULL, wString, L"Test print handler", MB_OK);
+			wchar_t* wString=new wchar_t[bytesToReceive + 1];
+			wString[bytesToReceive] = 0;
+			MultiByteToWideChar(CP_ACP, 0, pInitString, -1, wString, bytesToReceive);
+			MessageBox(NULL, wString, L"Sent Data", MB_OK);
+			MultiByteToWideChar(CP_ACP, 0, pOutString, -1, wString, bytesToReceive);
+			MessageBox(NULL, wString, L"Received data", MB_OK);
             MessageBox(NULL, L"NES FPGA not connected.", _T("NesDbg"), MB_OK);
         }
 
@@ -179,6 +183,7 @@ BOOL SerialComm::SendData(
 {
     BOOL  ret          = TRUE;
     DWORD bytesWritten = 0;
+
 
     ret = WriteFile(m_hSerialComm, pData, numBytes, &bytesWritten, NULL);
 
@@ -203,6 +208,7 @@ BOOL SerialComm::ReceiveData(
 {
     BOOL  ret       = TRUE;
     DWORD bytesRead = 0;
+	//numBytes += 3;
 
     ret = ReadFile(m_hSerialComm, pData, numBytes, &bytesRead, NULL);
 

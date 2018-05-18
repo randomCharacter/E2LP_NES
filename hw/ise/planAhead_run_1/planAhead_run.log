@@ -1,0 +1,137 @@
+
+****** PlanAhead v14.6 (64-bit)
+  **** Build 269223 by xbuild on Wed Jun  5 11:14:03 MDT 2013
+    ** Copyright 1986-1999, 2001-2012 Xilinx, Inc. All Rights Reserved.
+
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Common 17-86] Your PlanAhead license expires in -896 day(s)
+INFO: [Device 21-36] Loading parts and site information from C:/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [C:/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [C:/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source D:/ra97-2015/fpga_nes/hw/ise/pa.fromNetlist.tcl
+# create_project -name nes -dir "D:/ra97-2015/fpga_nes/hw/ise/planAhead_run_2" -part xc6slx45fgg676-2
+# set_property design_mode GateLvl [get_property srcset [current_run -impl]]
+# set_property edif_top_file "D:/ra97-2015/fpga_nes/hw/ise/nes_top.ngc" [ get_property srcset [ current_run ] ]
+# add_files -norecurse { {D:/ra97-2015/fpga_nes/hw/ise} {ipcore_dir_bak} }
+# set_property target_constrs_file "D:/ra97-2015/fpga_nes/hw/src/nes.ucf" [current_fileset -constrset]
+Adding file 'D:/ra97-2015/fpga_nes/hw/src/nes.ucf' to fileset 'constrs_1'
+# add_files [list {D:/ra97-2015/fpga_nes/hw/src/nes.ucf}] -fileset [get_property constrset [current_run]]
+# link_design
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+Design is defaulting to project part: xc6slx45fgg676-2
+Release 14.6 - ngc2edif P.68d (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design nes_top.ngc ...
+WARNING:NetListWriters:298 - No output is written to nes_top.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+WARNING:NetListWriters:306 - Signal bus ppu_vram_a<13 : 0> on block nes_top is
+   not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus hci_blk/q_cart_cfg<33 : 0> on block
+   nes_top is not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   rp2a03_blk/apu_blk/apu_mixer_blk/Madd_n0038_cy<3 : 1> on block nes_top is not
+   reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   rp2a03_blk/apu_blk/apu_pulse0_blk/Mmux_sweep_target_period_rs_B<6 : 1> on
+   block nes_top is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus
+   rp2a03_blk/apu_blk/apu_noise_blk/q_lfsr<14 : 0> on block nes_top is not
+   reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   rp2a03_blk/apu_blk/apu_frame_counter_blk/q_apu_cycle_cnt[14]_q_apu_cycle_cnt[
+   14]_mux_12_OUT<13 : 0> on block nes_top is not reconstructed, because there
+   are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus ppu_blk/vram_a_out[4]_Decoder_5_OUT<31 :
+   0> on block nes_top is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus
+   ppu_blk/palette_ram[31][5]_GND_30_o_mux_39_OUT<191 : 0> on block nes_top is
+   not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus ppu_blk/palette_ram_0<191 : 0> on block
+   nes_top is not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus ppu_blk/spr_vram_a<11 : 0> on block
+   nes_top is not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   ppu_blk/ppu_bg_blk/Madd_q_vc_GND_34_o_add_29_OUT_cy<6 : 2> on block nes_top
+   is not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   ppu_blk/ppu_bg_blk/Madd_q_fvc[2]_GND_34_o_add_23_OUT_cy<6 : 3> on block
+   nes_top is not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus ppu_blk/ppu_spr_blk/Madd_oam_rd_y_cy<5 :
+   0> on block nes_top is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus
+   ppu_blk/ppu_spr_blk/m_sbm[0][27]_sbm_din[27]_mux_13_OUT<27 : 0> on block
+   nes_top is not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   ppu_blk/ppu_spr_blk/m_sbm[1][27]_sbm_din[27]_mux_12_OUT<27 : 0> on block
+   nes_top is not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   ppu_blk/ppu_spr_blk/m_sbm[2][27]_sbm_din[27]_mux_11_OUT<27 : 0> on block
+   nes_top is not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   ppu_blk/ppu_spr_blk/m_sbm[3][27]_sbm_din[27]_mux_10_OUT<27 : 0> on block
+   nes_top is not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   ppu_blk/ppu_spr_blk/m_sbm[4][27]_sbm_din[27]_mux_9_OUT<27 : 0> on block
+   nes_top is not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   ppu_blk/ppu_spr_blk/m_sbm[5][27]_sbm_din[27]_mux_8_OUT<27 : 0> on block
+   nes_top is not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   ppu_blk/ppu_spr_blk/m_sbm[6][27]_sbm_din[27]_mux_7_OUT<27 : 0> on block
+   nes_top is not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus
+   ppu_blk/ppu_spr_blk/m_sbm[7][27]_sbm_din[27]_mux_6_OUT<27 : 0> on block
+   nes_top is not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus ppu_blk/ppu_spr_blk/stm_din<24 : 0> on
+   block nes_top is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus ppu_blk/ppu_spr_blk/m_sbm_0<223 : 0> on
+   block nes_top is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus ppu_blk/ppu_spr_blk/_n0569<24 : 3> on
+   block nes_top is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus ppu_blk/ppu_spr_blk/_n0568<31 : 8> on
+   block nes_top is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus ppu_blk/ppu_vga_blk/sync_x_next<9 : 1>
+   on block nes_top is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus
+   ppu_blk/ppu_vga_blk/vga_sync_blk/Madd_q_hcnt[9]_GND_32_o_add_8_OUT_cy<7 : 4>
+   on block nes_top is not reconstructed, because there are some missing bus
+   signals.
+  finished :Prep
+Writing EDIF netlist file nes_top.edif ...
+ngc2edif: Total memory usage is 97748 kilobytes
+
+Parsing EDIF File [./planAhead_run_2/nes.data/cache/nes_top_ngc_zx.edif]
+Finished Parsing EDIF File [./planAhead_run_2/nes.data/cache/nes_top_ngc_zx.edif]
+INFO: [Netlist 29-17] Analyzing 21 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-43] Netlist 'nes_top' is not ideal for floorplanning, since the cellview 'nes_top' defined in file 'nes_top.ngc' contains large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+Loading clock regions from C:/Xilinx/14.6/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx45/ClockRegion.xml
+Loading clock buffers from C:/Xilinx/14.6/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx45/ClockBuffers.xml
+Loading package pin functions from C:/Xilinx/14.6/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/PinFunctions.xml...
+Loading package from C:/Xilinx/14.6/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx45/fgg676/Package.xml
+Loading io standards from C:/Xilinx/14.6/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/IOStandards.xml
+Loading device configuration modes from C:/Xilinx/14.6/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/ConfigModes.xml
+Loading list of drcs for the architecture : C:/Xilinx/14.6/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/drc.xml
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+Parsing UCF File [D:/ra97-2015/fpga_nes/hw/src/nes.ucf]
+Finished Parsing UCF File [D:/ra97-2015/fpga_nes/hw/src/nes.ucf]
+link_design: Time (s): elapsed = 00:00:06 . Memory (MB): peak = 537.801 ; gain = 133.219
+INFO: [Common 17-344] 'link_design' was cancelled
+INFO: [Common 17-344] 'source' was cancelled
+exit
+ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
+INFO: [Common 17-206] Exiting PlanAhead at Tue May 15 11:22:22 2018...
+INFO: [Common 17-83] Releasing license: PlanAhead
