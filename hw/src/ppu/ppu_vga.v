@@ -46,8 +46,8 @@ module ppu_vga
 );
 
 // Display dimensions (640x480).
-localparam [9:0] DISPLAY_W    = 10'h780,
-                 DISPLAY_H    = 10'h438;
+localparam [9:0] DISPLAY_W    = 10'h280,
+                 DISPLAY_H    = 10'h1E0;
 
 // NES screen dimensions (256x240).
 localparam [9:0] NES_W        = 10'h100,
