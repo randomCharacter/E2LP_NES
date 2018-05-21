@@ -28,8 +28,8 @@
 module nes_top
 (
   input  wire       CLK_24MHZ,         // 24MHz system clock signal
-  input  wire       BTN_SOUTH,         // reset push button
-  input  wire       BTN_EAST,          // console reset
+  input  wire [4:0] JOY,
+  input  wire			RST_SW,
   input  wire       RXD,               // rs-232 rx signal
   input  wire [3:0] SW,                // switches
   input  wire       NES_JOYPAD_DATA1,  // joypad 1 input signal
@@ -43,7 +43,7 @@ module nes_top
   output wire [7:0] VGA_BLUE,          // vga blue signal
   output wire       NES_JOYPAD_CLK,    // joypad output clk signal
   output wire       NES_JOYPAD_LATCH,  // joypad output latch signal
-//  output wire       AUDIO,             // pwm output audio channel
+  output wire       AUDIO,             // pwm output audio channel
   output wire       VGA_PIX_CLK,
   output wire       VGA_BLANK,
   output wire       VGA_SYNC,
@@ -97,10 +97,11 @@ wire [ 7:0] rp2a03_dbgreg_dout;
 rp2a03 rp2a03_blk(
   .clk_in(CLK_100MHZ),
   .rst_in(s_rst),
+  .in_joy(JOY),
   .rdy_in(rp2a03_rdy),
   .d_in(rp2a03_din),
   .nnmi_in(rp2a03_nnmi),
-  .nres_in(BTN_EAST),
+  .nres_in(RST_SW),
   .d_out(rp2a03_dout),
   .a_out(rp2a03_a),
   .r_nw_out(rp2a03_r_nw),
@@ -307,25 +308,7 @@ wire sn_h_sync;
 wire sn_v_sync;
 wire sn_sync;
 wire sn_pow_save = 1'b1;
-/*
-vga_ctrl vga_ctrl_blk(
-   .i_clk_100MHz(CLK_100MHZ),
-   .in_rst(~s_rst),
-   .o_phase(s_phase),
-   .o_pixel_x(s_pixel_x),
-   .o_pixel_y(s_pixel_y),
-   .i_rgb(24'hffff00),
-   .o_vga_clk(s_vga_clk),
-   .o_red(s_red),
-   .o_green(s_green),
-   .o_blue(s_blue),
-   .on_blank(sn_blank),
-   .on_h_sync(sn_h_sync),
-   .on_v_sync(sn_v_sync),
-   .on_sync(sn_sync),
-   .on_pow_save(sn_pow_save)
-);
-*/
+
 assign VGA_RED = {s_red_ppu, 5'b00000};
 assign VGA_GREEN = {s_green_ppu, 5'b00000};
 assign VGA_BLUE = {s_blue_ppu, 6'b000000};

@@ -30,6 +30,8 @@ module rp2a03
 (
   input  wire        clk_in,         // system clock
   input  wire        rst_in,         // system reset
+  
+  input wire [4:0] in_joy,
 
   // CPU signals.
   input  wire        rdy_in,         // ready signal
@@ -141,6 +143,7 @@ sprdma sprdma_blk(
   .cpumc_r_nw_out(sprdma_r_nw)
 );
 
+assign controller = { 3'b000, in_joy };
 assign cpu_ready = rdy_in & !sprdma_active;
 assign cpu_din   = d_in | jp_dout | audio_dout;
 assign cpu_nirq  = 1'b1;
