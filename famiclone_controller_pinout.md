@@ -10,8 +10,8 @@
 
 ## Pinout
 1: Controller NC, Zapper trigger  
-2: Controller button states, Zapper NC  
-3: Controller reload, Zapper NC  
+2: Controller button states (Data), Zapper NC  
+3: Controller reload (Latch), Zapper NC  
 4: Controller clock, Zapper NC  
 5: Controller NC, Zapper photodiode  
 6, 7: Power  
