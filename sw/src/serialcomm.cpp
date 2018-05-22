@@ -149,21 +149,11 @@ BOOL SerialComm::Init()
 
         char* pOutString = new char[bytesToReceive];
         ReceiveData(reinterpret_cast<BYTE*>(pOutString), bytesToReceive);
-		/*int i = 0;
-		for(i = 0; i < bytesToReceive; i++) {
-			pOutString[i] = pOutString[i + 3];
-		}*/
-		//pOutString[i] = 0;
         if (strcmp(pInitString, pOutString))
         {
-			//ret = FALSE;
 			wchar_t* wString=new wchar_t[bytesToReceive + 1];
 			wString[bytesToReceive] = 0;
-			MultiByteToWideChar(CP_ACP, 0, pInitString, -1, wString, bytesToReceive);
-			MessageBox(NULL, wString, L"Sent Data", MB_OK);
-			MultiByteToWideChar(CP_ACP, 0, pOutString, -1, wString, bytesToReceive);
-			MessageBox(NULL, wString, L"Received data", MB_OK);
-            MessageBox(NULL, L"NES FPGA not connected.", _T("NesDbg"), MB_OK);
+			MessageBox(NULL, L"NES FPGA might not be connected.", _T("NesDbg"), MB_OK);
         }
 
         delete [] pOutString;
