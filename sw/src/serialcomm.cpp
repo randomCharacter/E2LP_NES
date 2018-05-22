@@ -102,7 +102,7 @@ BOOL SerialComm::Init()
 
     if (ret)
     {
-        serialConfig.BaudRate = CBR_9600;
+        serialConfig.BaudRate = CBR_14400;
         serialConfig.ByteSize = 8;
         serialConfig.StopBits = ONESTOPBIT;
         serialConfig.Parity   = ODDPARITY;
@@ -156,7 +156,7 @@ BOOL SerialComm::Init()
 		//pOutString[i] = 0;
         if (strcmp(pInitString, pOutString))
         {
-			ret = FALSE;
+			//ret = FALSE;
 			wchar_t* wString=new wchar_t[bytesToReceive + 1];
 			wString[bytesToReceive] = 0;
 			MultiByteToWideChar(CP_ACP, 0, pInitString, -1, wString, bytesToReceive);
