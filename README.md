@@ -13,13 +13,17 @@ In addition, this project includes a C++ Windows application called NesDbg, whic
 5. 2 [famiclone](https://en.wikipedia.org/wiki/Nintendo_Entertainment_System_hardware_clone) joypads.
 
 ## Connections
-| WIRE          | PORT     |
-| ------------- |:--------:|
-| Joypad latch  | *GPIO 3* |
-| Joypad clock  | *GPIO 5* |
-| Joypad 1 data | *GPIO 1* |
-| Joypad 2 data | *GPIO 7* |
-| Piezo buzzer  | *GPIO 2* |
+| WIRE          | PORT          |
+| ------------- |:-------------:|
+| Joypad latch  | *GPIO 3*      |
+| Joypad clock  | *GPIO 5*      |
+| Joypad 1 data | *GPIO 1*      |
+| Joypad 2 data | *GPIO 7*      |
+| Piezo buzzer  | *GPIO 2*      |
+| Sound volume  | *SW 0 - SW 3* |
+| CPU Reset     | *SW 4*        |
+| TX indicator  | *LED 0*       |
+| RX indicator  | *LED 7*       |
 
 More information about [famiclone](https://en.wikipedia.org/wiki/Nintendo_Entertainment_System_hardware_clone) joypad connectors [here](famiclone_controller_pinout.md)
 
