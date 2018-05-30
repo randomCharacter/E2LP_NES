@@ -25,6 +25,8 @@ In addition, this project includes a C++ Windows application called NesDbg, whic
 | TX indicator  | *LED 0*       |
 | RX indicator  | *LED 7*       |
 
+![E2LP](https://raw.githubusercontent.com/randomCharacter/E2LP_NES/master/doc/e2lp.jpg)
+
 More information about [famiclone](https://en.wikipedia.org/wiki/Nintendo_Entertainment_System_hardware_clone) joypad connectors [here](famiclone_controller_pinout.md)
 
 ## Development Environment:
